@@ -7,9 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class RadioTest {
 
     private Radio radio = new Radio();
-    private Radio radioChangeMaxStation = new Radio(10);
+    private Radio radioChangeMaxStation = new Radio(radio.getStations());
 
     @Test
+        //начальная станция
     void GetInitialStation() {
         int expected = 0;
         int actual = radio.getCurrentStation();
@@ -18,6 +19,7 @@ class RadioTest {
     }
 
     @Test
+        //максимальная станция
     void GetCurrentStationMax() {
         int expected = 9;
         int actual = radioChangeMaxStation.getMaxStation();
@@ -26,6 +28,7 @@ class RadioTest {
     }
 
     @Test
+        //выбор следующей станции
     void SetNextNumberStation() {
         int expected = 1;
         radio.nextStation();
@@ -35,6 +38,7 @@ class RadioTest {
     }
 
     @Test
+        // выбор станции с 9 на 0
     void SetNextNumberChangeStationMax() {
         int expected = radioChangeMaxStation.getMinStation();
         radioChangeMaxStation.setNumberCurrentStation(radioChangeMaxStation.getMaxStation());
